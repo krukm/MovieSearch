@@ -5,12 +5,16 @@ angular.module("app")
         $routeProvider
         .when("/movieList", {
             template: `
-            <movie-list></movie-list>
+            <movie-list>
+                <h1>Movie List</h1>
+            </movie-list>
             `
         })
         .when("/watchList",{
             template: `
-            <watch-list></watch-list>
+            <watch-list>
+                <h1>Watch List</h1>
+            </watch-list>
             `
         })
         .otherwise({
