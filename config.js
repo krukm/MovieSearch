@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("app")
-    .config(["$routeProvider"], function($routeProvider) {
+    .config(["$routeProvider", function($routeProvider) {
         $routeProvider
         .when("/movieList", {
             template: `
@@ -17,4 +17,4 @@ angular.module("app")
             redirectTo: "/movieList"
         })
 
-    })
+    }])
