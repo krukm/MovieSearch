@@ -1,11 +1,16 @@
 "use strict"
 const movieList = {
-    template:`<p>Movies!!!!</p>
-              <p>{{$ctrl.katie}}</p>`,
+    template:`<p>Adrean</p>`,
 
     controller: ["MovieService", function(MovieService) {
       const vm = this;
-      vm.katie = MovieService.matty
+
+    // put this inside a function
+    MovieService.searchMovies("matrix").then((response) => {
+        vm.searchMovies = response;
+        console.log(vm.searchMovies.overview);  
+    })
+
     }]
 }
 

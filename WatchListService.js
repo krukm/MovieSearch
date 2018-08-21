@@ -4,18 +4,13 @@ function WatchListService() {
 
     const vm = this;
 
-    vm.movieList = [
-        {name: 'Fast Times at Ridgemont high'},
-         {name: 'Rambo'},
-        {name: 'Bambi'}
-    ];
+    vm.movieList = [];
 
     vm.setMovieList = (movie) => {
         vm.movieList.push(movie);
     }
 
     vm.getMovieList = () => {
-        console.log("You're in the getMovie Service");
         return vm.movieList;
     }
 }
