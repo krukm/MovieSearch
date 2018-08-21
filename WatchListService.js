@@ -4,7 +4,11 @@ function WatchListService() {
 
     const vm = this;
 
-    vm.movieList = [];
+    vm.movieList = [
+        'Fast Times at Ridgemont high',
+        'Rambo',
+        'Bambi'
+    ];
 
     vm.setMovieList = (movie) => {
         vm.movieList.push(movie);
