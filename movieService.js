@@ -1,8 +1,9 @@
 "use strict";
-function movieService() {
+function MovieService() {
+    this.matty = "person"
 
 }
 
 angular
     .module("app")
-    .service("movieService", movieService )
+    .service("MovieService", MovieService )
