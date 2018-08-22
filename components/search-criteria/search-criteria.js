@@ -9,11 +9,9 @@ const searchCriteria = {
         vm.getSearchResults = (searchTerm) => {
             MovieService.searchMovies(searchTerm).then((response) => {
                 vm.result = response;
-            console.log(vm.result.results);
+                SearchService.setSearchTerm(searchTerm);
             });
-            
         }
-
     }]
 } 
 
