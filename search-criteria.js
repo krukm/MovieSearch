@@ -2,11 +2,17 @@
 
 const searchCriteria = {
     template: `
-    
+        <section>
+            <input type="search" ng-model="$ctrl.searchTerm" placeholder="movie name">
+            <button type="button" ng-click="$ctrl.searchMovieByTitle($ctrl.searchTerm);">Search</button>
+        </section>
     `,
-    controller: ["MovieService", "WatchListService", function(MovieService, WatchListService){
+    controller: ['SearchService', function(SearchService) {
         const vm = this;
         
+        vm.searchMovieByTitle = (searchTerm) => {
+            SearchService.setSearchTerm(searchTerm);
+        }
     }]
 } 
 

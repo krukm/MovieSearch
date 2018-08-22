@@ -1,15 +1,24 @@
-"use strict"
+"use strict";
 const movieList = {
-    template:`<p>Adrean</p>`,
+    template:`
+        <section>
+        <search-criteria></search-criteria>
+            <h1>Movie App</h1>
+            <p></p>
+        </section>
+    `,
 
-    controller: ["MovieService", function(MovieService) {
-      const vm = this;
+    controller: ['MovieService', 'SearchService', function(MovieService, SearchService) {
+        const vm = this;
+        vm.searchTerm = SearchService.getSearchTerm();
+        console.log(vm.searchTerm);
 
     // put this inside a function
-    MovieService.searchMovies("matrix").then((response) => {
-        vm.searchMovies = response;
-        console.log(vm.searchMovies.overview);  
-    })
+    MovieService.searchMovies(vm.searchTerm).then((response) => {
+        vm.result = response;
+        console.log(vm.searchTerm);
+        console.log(vm.result.results[0].title);
+    });
 
     }]
 }
@@ -18,4 +27,4 @@ const movieList = {
 
 angular
     .module("app")
-    .component("movieList", movieList)
+    .component("movieList", movieList);
