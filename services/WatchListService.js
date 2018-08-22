@@ -11,6 +11,11 @@ function WatchListService() {
         console.log(vm.movieList);
     }
 
+    vm.deleteMovie = (index) => {
+        vm.movieList.splice(index,1);
+        console.log("delete " + index);
+    }
+
     vm.getWatchlist = () => {
         return vm.movieList;
     }
