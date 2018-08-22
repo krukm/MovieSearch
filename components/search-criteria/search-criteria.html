@@ -1,7 +1,29 @@
 <section>
   <form>
     <input type="search" ng-model="$ctrl.searchTerm" placeholder="movie name">
-    <button type="submit" ng-click="$ctrl.getSearchResults($ctrl.searchTerm);">Search</button>
+    <button type="submit" ng-click="$ctrl.getSearchResults($ctrl.searchTerm, selected);">Search</button>
+    <select ng-model="selected" placeholder="Genres">
+        <option disabled selected>Genres</option>
+        <option value="18">Action</option>
+        <option value="12">Adventure</option>
+        <option value="16">Animation</option>
+        <option value="35">Comedy</option>
+        <option value="80">Crime</option>
+        <option value="99">Documentary</option>
+        <option value="18">Drama</option>
+        <option value="10751">Family</option>
+        <option value="14">Fantasy</option>
+        <option value="36">History</option>
+        <option value="27">Horror</option>
+        <option value="10402">Music</option>
+        <option value="9648">Mystery</option>
+        <option value="10749">Romance</option>
+        <option value="878">Science Fiction</option>
+        <option value="10770">TV Movie</option>
+        <option value="53">Thriller</option>
+        <option value="10752">War</option>
+        <option value="37"><a>Western</a></option>
+    </select>
   </form>
   <section ng-repeat="result in $ctrl.result.results">
     <button ng-click= "$ctrl.addToWatchlist(result);" type="button">Add to Watchlist</button>
@@ -10,5 +32,8 @@
     <a href="https://www.themoviedb.org/movie/{{result.id}}">Link</a>
     <div>https://www.themoviedb.org/movie/{{result.id}}/videos</div>
     <p>{{result.overview}}</p>
+    <h1>{{result.genre_ids}}</h1>
   </section>
 </section>
+
+

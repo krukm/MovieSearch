@@ -6,16 +6,22 @@ const searchCriteria = {
         const vm = this;
         vm.result = null;
     
-        vm.getSearchResults = (searchTerm) => {
-            MovieService.searchMovies(searchTerm).then((response) => {
+        vm.getSearchResults = (searchTerm, selected) => {
+            MovieService.searchMovies(searchTerm, selected).then((response) => {
                 vm.result = response;
                 SearchService.setSearchTerm(searchTerm);
                 console.log(vm.result);
             });
-            vm.addToWatchlist = (movie) => {
-                WatchListService.addToWatchlist(movie);
-               
-            }  
+        vm.addToWatchlist = (movie) => {
+            WatchListService.addToWatchlist(movie);   
+        }  
+        vm.getMovieByGenre = function (searchTerm, selected) {
+            MovieService.searchByGenre(searchTerm, selected).then(function(response){
+                vm.result = response;
+                SearchService.setSearchTerm(searchTerm);
+                console.log(`From getmoviebygenre ${vm.result}`);
+            })
+        }
         }
     }]
 } 
