@@ -14,6 +14,9 @@ const movieList = {
                 vm.popMovies = response.results;
                 });
             };
+            vm.addToWatchlist = (movie) => {
+                WatchListService.addToWatchlist(movie)
+            }
         vm.displayOnPageOpen();
     }]
 }
