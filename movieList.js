@@ -1,6 +1,7 @@
 "use strict";
 const movieList = {
     template:`
+    <search-criteria></search-criteria>
     <section ng-repeat="movie in $ctrl.popMovies | limitTo:15">
         <p>{{ movie.title }}<p>
         <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}"></img>
@@ -17,20 +18,21 @@ const movieList = {
         
         controller: ["MovieService", function(MovieService) {
             const vm = this;
+            vm.searchTerm = SearchService.getSearchTerm;
+
             
-        vm.displayOnPageOpen = () => {
-            vm.displayMovies("matrix");
-        }
-        // put this inside a function
-        vm.displayMovies = (search) => {
-            MovieService.popularMovies().then((response) => {
-            vm.popMovies = response.results;
-            });
-            MovieService.searchMovies(search).then((response) => {
-            vm.searchMovies = response.results;
-            });
-        };
-        vm.displayOnPageOpen();
+            vm.displayOnPageOpen = () => {
+                MovieService.searchMovies(vm.searchTerm).then((response) => {
+                    vm.searchMovies = response.results;
+                    });
+            }
+            // put this inside a function
+            vm.displayMovies = (search) => {
+                MovieService.popularMovies().then((response) => {
+                vm.popMovies = response.results;
+                });
+            };
+            vm.displayOnPageOpen();
     }]
 }
 
