@@ -2,7 +2,7 @@
 
 const searchCriteria = {
     templateUrl: "components/search-criteria/search-criteria.html",
-    controller: ['SearchService', 'MovieService', function(SearchService, MovieService) {
+    controller: ['SearchService', 'MovieService', 'WatchListService', function(SearchService, MovieService, WatchListService) {
         const vm = this;
         vm.result = null;
     
@@ -10,7 +10,12 @@ const searchCriteria = {
             MovieService.searchMovies(searchTerm).then((response) => {
                 vm.result = response;
                 SearchService.setSearchTerm(searchTerm);
+                console.log(vm.result);
             });
+            vm.addToWatchlist = (movie) => {
+                WatchListService.addToWatchlist(movie);
+               
+            }  
         }
     }]
 } 
