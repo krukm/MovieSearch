@@ -1,6 +1,9 @@
 "use strict";
 
 const searchCriteria = {
+    bindings: {
+        
+    },
     template: `
         <section>
             <input type="search" ng-model="$ctrl.searchTerm" placeholder="movie name">
