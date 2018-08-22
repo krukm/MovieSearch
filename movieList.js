@@ -1,7 +1,7 @@
 "use strict"
 const movieList = {
     template:`
-    <section ng-repeat="movie in $ctrl.popMovies | limitTo:10">
+    <section ng-repeat="movie in $ctrl.popMovies | limitTo:15">
         <p>{{ movie.title }}<p>
         <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}"></img>
         <a href="https://www.themoviedb.org/movie/{{movie.id}}">Link</a>
