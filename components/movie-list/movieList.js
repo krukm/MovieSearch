@@ -18,15 +18,7 @@ const movieList = {
         
         controller: ["MovieService", function(MovieService) {
             const vm = this;
-            vm.searchTerm = SearchService.getSearchTerm;
-
-            
-            vm.displayOnPageOpen = () => {
-                MovieService.searchMovies(vm.searchTerm).then((response) => {
-                    vm.searchMovies = response.results;
-                    });
-            }
-            // put this inside a function
+        
             vm.displayMovies = (search) => {
                 MovieService.popularMovies().then((response) => {
                 vm.popMovies = response.results;

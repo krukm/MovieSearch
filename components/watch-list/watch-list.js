@@ -6,7 +6,6 @@ const watchList = {
         <section ng-repeat="movie in $ctrl.movieList track by $index">
             <p> {{ movie.name }} </p>
         </section>
-
     `,
     controller: ["WatchListService", function(WatchListService){
         const vm = this;

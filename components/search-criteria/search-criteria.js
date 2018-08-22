@@ -9,9 +9,16 @@ const searchCriteria = {
     `,
     controller: ['SearchService', function(SearchService) {
         const vm = this;
+        vm.searchTerm = SearchService.getSearchTerm();
         
         vm.searchMovieByTitle = (searchTerm) => {
             SearchService.setSearchTerm(searchTerm);
+        }
+
+        vm.displayOnPageOpen = () => {
+            MovieService.searchMovies(vm.searchTerm).then((response) => {
+                vm.searchMovies = response.results;
+                });
         }
     }]
 } 
