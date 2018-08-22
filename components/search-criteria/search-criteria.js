@@ -5,9 +5,12 @@ const searchCriteria = {
         <section>
             <input type="search" ng-model="$ctrl.searchTerm" placeholder="movie name">
             <button type="button" ng-click="$ctrl.searchMovieByTitle($ctrl.searchTerm);">Search</button>
+            <section>
+                <p ng-repeat="movie in $ctrl."> {{  }} </p>
+            </section>
         </section>
     `,
-    controller: ['SearchService', function(SearchService) {
+    controller: ['SearchService', 'MovieService', function(SearchService, MovieService) {
         const vm = this;
         vm.searchTerm = SearchService.getSearchTerm();
         
@@ -15,11 +18,6 @@ const searchCriteria = {
             SearchService.setSearchTerm(searchTerm);
         }
 
-        vm.displayOnPageOpen = () => {
-            MovieService.searchMovies(vm.searchTerm).then((response) => {
-                vm.searchMovies = response.results;
-                });
-        }
     }]
 } 
 

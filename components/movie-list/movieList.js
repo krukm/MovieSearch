@@ -18,8 +18,13 @@ const movieList = {
         
         controller: ["MovieService", function(MovieService) {
             const vm = this;
-        
-            vm.displayMovies = (search) => {
+            
+            vm.displayOnPageOpen = () => {
+                MovieService.searchMovies(vm.searchTerm).then((response) => {
+                    vm.searchMovies = response.results;
+                    });
+            }
+            vm.displayMovies = () => {
                 MovieService.popularMovies().then((response) => {
                 vm.popMovies = response.results;
                 });
