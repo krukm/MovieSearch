@@ -1,17 +1,13 @@
 "use strict";
 
 const watchList = {
-    template: `
-        <h1>Your Watch List</h1>
-        <section ng-repeat="movie in $ctrl.movieList track by $index">
-            <p> {{ movie.name }} </p>
-        </section>
-    `,
+    templateUrl: "components/watch-list/watch-list.html",
     controller: ["WatchListService", function(WatchListService){
         const vm = this;
 
-        vm.movieList = WatchListService.getMovieList();
+        vm.movieList = WatchListService.getWatchlist();
         console.log(vm.movieList);
+        
     }]
 }
 

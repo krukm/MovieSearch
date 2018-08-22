@@ -7,7 +7,7 @@ function WatchListService() {
     vm.movieList = [];
 
     vm.addToWatchlist = (movie) => {
-        vm.movieList.push(movie);
+        vm.movieList.unshift(movie);
         console.log(vm.movieList);
     }
 

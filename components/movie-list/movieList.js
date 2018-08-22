@@ -2,7 +2,7 @@
 const movieList = {
     templateUrl:"components/movie-list/movie-list.html",
         
-        controller: ["MovieService", function(MovieService) {
+        controller: ["MovieService", "WatchListService", function(MovieService, WatchListService) {
             const vm = this;
         
             vm.displayOnPageOpen = () => {
@@ -15,7 +15,7 @@ const movieList = {
                 });
             };
             vm.addToWatchlist = (movie) => {
-                WatchListService.addToWatchlist(movie)
+                WatchListService.addToWatchlist(movie);
             }
         vm.displayOnPageOpen();
     }]
