@@ -10,7 +10,7 @@ angular.module("app")
             </movie-list>
             `
         })
-        .when("/watch-list", {
+        .when("/watchList", {
             template: `
             <watch-list>
                 <h1>Watch List</h1>
