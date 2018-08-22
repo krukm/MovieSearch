@@ -1,21 +1,17 @@
 "use strict";
 
 const searchCriteria = {
-    template: `
-        <section>
-            <input type="search" ng-model="$ctrl.searchTerm" placeholder="movie name">
-            <button type="button" ng-click="$ctrl.searchMovieByTitle($ctrl.searchTerm);">Search</button>
-            <section>
-                <p ng-repeat="movie in $ctrl."> {{  }} </p>
-            </section>
-        </section>
-    `,
+    templateUrl: "components/search-criteria/search-criteria.html",
     controller: ['SearchService', 'MovieService', function(SearchService, MovieService) {
         const vm = this;
-        vm.searchTerm = SearchService.getSearchTerm();
-        
-        vm.searchMovieByTitle = (searchTerm) => {
-            SearchService.setSearchTerm(searchTerm);
+        vm.result = null;
+    
+        vm.getSearchResults = (searchTerm) => {
+            MovieService.searchMovies(searchTerm).then((response) => {
+                vm.result = response;
+            console.log(vm.result.results);
+            });
+            
         }
 
     }]
