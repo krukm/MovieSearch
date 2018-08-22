@@ -6,11 +6,12 @@ function WatchListService() {
 
     vm.movieList = [];
 
-    vm.setMovieList = (movie) => {
+    vm.addToWatchlist = (movie) => {
         vm.movieList.push(movie);
+        console.log(vm.movieList);
     }
 
-    vm.getMovieList = () => {
+    vm.getWatchlist = () => {
         return vm.movieList;
     }
 }
