@@ -56,34 +56,39 @@ const discover = {
     <details id="rating">
     <summary>Rating</summary>
     <label>
-    <input type="checkbox" value="5">
+    <input type="checkbox" ng-model="$ctrl.discoverInputs.fiveStar">
     ★★★★★
     </label>
     <label>
-    <input type="checkbox" value="4">
+    <input type="checkbox" ng-model="$ctrl.discoverInputs.fourStar">
     ★★★★
     </label>
     <label>
-    <input type="checkbox" value="3">
+    <input type="checkbox" ng-model="$ctrl.discoverInputs.threeStar">
     ★★★
     </label>
     <label>
-    <input type="checkbox" value="2">
+    <input type="checkbox" ng-model="$ctrl.discoverInputs.twoStar">
     ★★
     </label>
     <label>
-    <input type="checkbox" value="1">
+    <input type="checkbox" ng-model="$ctrl.discoverInputs.oneStar">
     ★
     </label>
     </details>
     
 
     
-    <button>Discover</button>
+    <button ng-click="$ctrl.discover($ctrl.discoverInputs)">Discover</button>
     </section>
     `,
     controller: function() {
         const vm = this;
+        vm.discover = function(discoverInputs) {
+            
+            console.dir(discoverInputs);
+
+        }
     }
 }
 
