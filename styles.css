@@ -2,3 +2,10 @@ img {
     height: 300px;
     width: 200px;
 }
+
+#browseList {
+   display: none;
+}
+#showlist:hover #browseList {
+    display: block;
+}
