@@ -5,12 +5,19 @@ const searchCriteria = {
     controller: ['SearchService', 'MovieService', 'WatchListService', function(SearchService, MovieService, WatchListService) {
         const vm = this;
         vm.result = null;
+        vm.genreList = null;
+        vm.selectedGenre = null;
         vm.searchTerm = SearchService.getSearchTerm();
     
         vm.getSearchResults = (searchTerm) => {
             MovieService.searchMovies(searchTerm).then((response) => {
                 vm.result = response;
                 SearchService.setSearchTerm(searchTerm);
+            });
+            vm.addToWatchlist = (movie) => {
+                WatchListService.addToWatchlist(movie);
+               
+            }  
             });    
         }
 
@@ -28,6 +35,24 @@ const searchCriteria = {
         if (vm.searchTerm !== null) {
             vm.getMovieByGenre(vm.searchTerm);
         }
+
+        vm.getGenreList = () => {
+            MovieService.genreList().then((response) => {
+                vm.genreList = response.genres;
+            });
+        };
+                 
+        vm.getGenreResults = (genreInput) => {
+            MovieService.moviesByGenre(genreInput).then((response) => {
+                console.log(genreInput);
+                vm.result = response;
+                console.log(response)
+                console.log(vm.result)
+                SearchService.setSearchTerm(genreInput);
+            });
+        }
+        
+        vm.getGenreList();
     }]
 } 
 

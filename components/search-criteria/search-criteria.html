@@ -25,7 +25,14 @@
         <option value="37">Western</option>
     </select> 
   </form>
-  <section ng-repeat="result in $ctrl.result">
+  <form>
+    <select  ng-model="$ctrl.selectedGenre" ng-options="genre as genre.name for genre in $ctrl.genreList track by genre.id" >
+        <option value="" selected disabled hidden>Search by Genre</option>
+    </select>
+    <button ng-click="$ctrl.getGenreResults($ctrl.selectedGenre);">SEARCH</button>
+  </form>
+  <section ng-repeat="result in $ctrl.result.results">
+  <!-- <section ng-repeat="result in $ctrl.result"> --->
     <button ng-click= "$ctrl.addToWatchlist(result);" type="button">Add to Watchlist</button>
     <p > {{ result.title }} </p>
     <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}">
