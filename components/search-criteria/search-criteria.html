@@ -65,33 +65,37 @@
   </section> -->
 
   <section class="movies">
-    <details ng-repeat="result in $ctrl.result">
-      <summary>
+    <section ng-repeat="result in $ctrl.result">
         <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}">
-        <button ng-click= "$ctrl.addToWatchlist(result);" type="button">Add to Watchlist</button>
-      </summary>
-          <!-- <p>{{ movie.title }}<p>
-          <a href="https://www.themoviedb.org/movie/{{movie.id}}">Link</a>
-          <div>https://www.themoviedb.org/movie/{{movie.id}}/videos</div> -->
-      <a href="https://www.themoviedb.org/movie/{{result.id}}">
-        <h3>{{ movie.title }}</h3>
-      </a>
-      <p id="overview">{{ result.overview }} </p>
-    </details> 
+      <details>
+        <summary>
+          <button ng-click= "$ctrl.addToWatchlist(result);" type="button">Add to Watchlist</button>
+        </summary>
+            <!-- <p>{{ movie.title }}<p>
+            <a href="https://www.themoviedb.org/movie/{{movie.id}}">Link</a>
+            <div>https://www.themoviedb.org/movie/{{movie.id}}/videos</div> -->
+        <a href="https://www.themoviedb.org/movie/{{result.id}}">
+          <h3>{{ movie.title }}</h3>
+        </a>
+        <p id="overview">{{ result.overview }} </p>
+      </details> 
+    </section>
   </section>
 
   <section class="movies">
-      <details ng-repeat="result in $ctrl.result">
-          <summary>
-              <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}">
-              <button ng-click= "$ctrl.addToWatchlist(movie);" type="button">Add to Watchlist</button>
-          </summary>
+    <section ng-repeat="result in $ctrl.result">
+      <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}">
+      <details>
+        <summary>   
+          <button ng-click= "$ctrl.addToWatchlist(movie);" type="button">Add to Watchlist</button>
+        </summary>
           <!-- <p>{{ movie.title }}<p>
           <a href="https://www.themoviedb.org/movie/{{movie.id}}">Link</a>
           <div>https://www.themoviedb.org/movie/{{movie.id}}/videos</div> -->
-          <h3>{{ result.title }}</h3>
-          <p id="overview">{{ result.overview }} </p>
+        <h3>{{ result.title }}</h3>
+        <p id="overview">{{ result.overview }} </p>
       </details> 
+    </section>
   </section>
 
 
