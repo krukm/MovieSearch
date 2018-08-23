@@ -3,6 +3,12 @@
     <input type="search" ng-model="$ctrl.searchTerm" placeholder="movie name">
     <button type="submit" ng-click="$ctrl.getSearchResults($ctrl.searchTerm);">Search</button>
   </form>
+  <form>
+    <select  ng-model="$ctrl.selectedGenre" ng-options="genre as genre.name for genre in $ctrl.genreList track by genre.id" >
+        <option value="" selected disabled hidden>Search by Genre</option>
+    </select>
+    <button ng-click="$ctrl.getGenreResults($ctrl.selectedGenre);">SEARCH</button>
+  </form>
   <section ng-repeat="result in $ctrl.result.results">
     <button ng-click= "$ctrl.addToWatchlist(result);" type="button">Add to Watchlist</button>
     <p > {{ result.title }} </p>
