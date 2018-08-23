@@ -1,10 +1,26 @@
 <h1>Your Watch List</h1>
 <p ng-if="$ctrl.movieList.length <= 0">You don't have any movies saved to your Watch List yet!</p>
-<section ng-repeat="movie in $ctrl.movieList track by $index">
+
+<!-- <section ng-repeat="movie in $ctrl.movieList track by $index">
     <button type="button" ng-click="$ctrl.deleteMovie($index)">X</button>
     <p> {{ movie.title }} </p>
     <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
     <a href="https://www.themoviedb.org/movie/{{movie.id}}">Link</a>
     <div>https://www.themoviedb.org/movie/{{movie.id}}/videos</div>
     <p>{{movie.overview}}</p>
-</section>
+</section> -->
+
+<section class="movies">
+        <details ng-repeat="movie in $ctrl.movieList track by $index">
+            <button type="button" ng-click="$ctrl.deleteMovie($index)">X</button>
+            <summary>
+                <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+                <button ng-click= "$ctrl.addToWatchlist(movie);" type="button">Add to Watchlist</button>
+            </summary>
+            <!-- <p>{{ movie.title }}<p>
+            <a href="https://www.themoviedb.org/movie/{{movie.id}}">Link</a>
+            <div>https://www.themoviedb.org/movie/{{movie.id}}/videos</div> -->
+            <h3>{{ movie.title }}</h3>
+            <p id="overview">{{ movie.overview }} </p>
+        </details> 
+    </section>
