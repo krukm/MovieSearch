@@ -2,7 +2,7 @@
 
 const searchCriteria = {
     templateUrl: "components/search-criteria/search-criteria.html",
-    controller: ['SearchService', 'MovieService', 'WatchListService', function(SearchService, MovieService, WatchListService) {
+    controller: ['SearchService', 'MovieService', 'WatchListService', 'MovieDetailsService',  function(SearchService, MovieService, WatchListService, MovieDetailsService) {
         const vm = this;
         vm.result = null;
         vm.genreList = null;
@@ -11,6 +11,10 @@ const searchCriteria = {
         vm.addToWatchlist = (movie) => {
             WatchListService.addToWatchlist(movie);
         } 
+        vm.setCurrentMovie = (movie) => {
+            MovieDetailsService.setCurrentMovie(movie);
+            console.log(movie);
+        }
 
         vm.getMovieByGenre = (searchTerm, genre) => {
             if (searchTerm === '') {

@@ -65,7 +65,7 @@
   </section> -->
 
   <section class="movies">
-    <details ng-repeat="result in $ctrl.result">
+    <details ng-repeat="result in $ctrl.result track by $index">
       <summary>
         <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}">
         <button ng-click= "$ctrl.addToWatchlist(result);" type="button">Add to Watchlist</button>
@@ -76,7 +76,7 @@
       <a href="https://www.themoviedb.org/movie/{{result.id}}">
         <h3>{{ movie.title }}</h3>
       </a>
-      <p id="overview">{{ result.overview }} </p>
+      <p id="overview">{{ result.overview }} <a href="#!/movieDetails" ng-click="$ctrl.setCurrentMovie(result);">more...</a> </p>
     </details> 
   </section>
 
@@ -90,7 +90,7 @@
           <a href="https://www.themoviedb.org/movie/{{movie.id}}">Link</a>
           <div>https://www.themoviedb.org/movie/{{movie.id}}/videos</div> -->
           <h3>{{ result.title }}</h3>
-          <p id="overview">{{ result.overview }} </p>
+          <p id="overview">{{ result.overview }} <a href="#!/movieDetails" ng-click="">more...</a> </p>
       </details> 
   </section>
 

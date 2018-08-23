@@ -18,9 +18,7 @@ function MovieService($http) {
             }).then((response) => {
                 for (let i = 0; i < response.data.results.length; i++) {
                     vm.genreResults.push(response.data.results[i]);
-                }
-                console.log('No Genre: ');
-                console.log(vm.genreResults);
+                }      
                 return vm.genreResults;
             });
         //search by genre only
