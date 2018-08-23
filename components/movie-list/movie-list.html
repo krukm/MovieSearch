@@ -1,22 +1,28 @@
 <search-criteria></search-criteria>
 <section class="movies">
-    <details ng-repeat="movie in $ctrl.popMovies | limitTo:15">
-        <summary>
-            <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
-            <button ng-click= "$ctrl.addToWatchlist(movie);" type="button">Add to Watchlist</button>
-        </summary>
-        <!-- <p>{{ movie.title }}<p>
-        <a href="https://www.themoviedb.org/movie/{{movie.id}}">Link</a>
-        <div>https://www.themoviedb.org/movie/{{movie.id}}/videos</div> -->
-        <h3>{{movie.title}}</h3>
-        <p id="overview">{{ movie.overview }} <a href="#!/movieDetails" ng-click="$ctrl.setCurrentMovie(movie);">more...</a> </p>
-    </details> 
+    <section ng-repeat="movie in $ctrl.popMovies | limitTo:15">
+        <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+        <details >
+            <summary>
+                
+                <button ng-click= "$ctrl.addToWatchlist(movie);" type="button">Add to Watchlist</button>
+            </summary>
+            <!-- <p>{{ movie.title }}<p>
+            <a href="https://www.themoviedb.org/movie/{{movie.id}}">Link</a>
+            <div>https://www.themoviedb.org/movie/{{movie.id}}/videos</div> -->
+            <h3>{{movie.title}}</h3>
+            <p id="overview">{{ movie.overview }} <a href="#!/movieDetails" ng-click="$ctrl.setCurrentMovie(movie);">more...</a> </p>
+        </details> 
+    </section>
+
 </section>
 
 <section class="movies">
-        <details ng-repeat="movie in $ctrl.searchMovies | limitTo:10">
+    <section ng-repeat="movie in $ctrl.searchMovies | limitTo:10">
+        <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+        <details></details>
             <summary>
-                <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+                
                 <button ng-click="$ctrl.addToWatchlist(movie);" type="button">Add to Watchlist</button>
             </summary>
             <!-- <p>{{ movie.title }}<p>
@@ -28,6 +34,7 @@
             <p id="overview">{{ movie.overview }} <a href="#!/movieDetails">more...</a> </p>
         </details> 
     </section>
+</section>
 
 <!-- <section ng-repeat="movie in $ctrl.topYearList | limitTo:10">
         <button ng-click= "$ctrl.addToWatchlist(movie);" type="button">Add to Watchlist</button>

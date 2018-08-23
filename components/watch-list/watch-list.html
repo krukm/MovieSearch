@@ -15,10 +15,12 @@
 </section> -->
 
 <section class="movies">
-        <details ng-repeat="movie in $ctrl.movieList track by $index">
+    <section ng-repeat="movie in $ctrl.movieList track by $index">
+        <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+        <details>
             <button type="button" ng-click="$ctrl.deleteMovie($index)">X</button>
             <summary>
-                <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+                
                 <!-- <button ng-click= "$ctrl.addToWatchlist(movie);" type="button">Add to Watchlist</button> -->
             </summary>
             <!-- <p>{{ movie.title }}<p>
@@ -28,3 +30,4 @@
             <p id="overview">{{ movie.overview }} <a href="#!/movieDetails" ng-click="$ctrl.setCurrentMovie(movie);">more...</a> </p>
         </details> 
     </section>
+</section>
