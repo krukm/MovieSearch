@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+}
+header {
+    width: 100%;
+    /* position: fixed; */
+    margin-bottom: 20px;
+
+}
+nav {
+    display: flex;
+    background: #7c9999;
+    align-items: center;
+    padding-left: 15px;
+    border-bottom: #ecf4f4 3px solid;
+    box-shadow: 0 7px 5px #888;
+    width: 100%; 
+}
+
+nav * {
+    margin-right: 15px;
+    border-radius: 35px;
+    border: none;
+}
+
+nav input {
+    padding: 14px;
+    outline: none;
+    width: 300px;
+}
+
+nav input::placeholder {
+    font-family: "Source Sans Pro";
+    word-spacing: 5px;
+    font-size: 14px;
+    padding-left: 10px;
+    font-style: italic;
+}
+
+#logo {
+    height: 50px;
+    width: 50px;
+}
+
+h1 {
+    font-family: 'Baloo Bhai', cursive;
+}
