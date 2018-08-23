@@ -5,17 +5,32 @@ const searchCriteria = {
     controller: ['SearchService', 'MovieService', 'WatchListService', function(SearchService, MovieService, WatchListService) {
         const vm = this;
         vm.result = null;
-    
-        vm.getSearchResults = (searchTerm) => {
-            MovieService.searchMovies(searchTerm).then((response) => {
-                vm.result = response;
-                SearchService.setSearchTerm(searchTerm);
-                console.log(vm.result);
+        vm.genreList = null;
+        vm.searchTerm = SearchService.getSearchTerm();
+
+        vm.addToWatchlist = (movie) => {
+            WatchListService.addToWatchlist(movie);
+        } 
+
+        vm.getMovieByGenre = (searchTerm, genre) => {
+            if (searchTerm === '') {
+                searchTerm = null;
+            };
+            MovieService.resetGenreResults();
+            MovieService.searchByGenre(searchTerm, genre).then((response) => {
+            SearchService.setSearchTerm(searchTerm);
+            vm.result = response;
+           });
+        }
+
+        vm.getGenreList = () => {
+            MovieService.genreList().then((response) => {
+                vm.genreList = response.genres;
             });
-            vm.addToWatchlist = (movie) => {
-                WatchListService.addToWatchlist(movie);
-               
-            }  
+        };
+
+        if (vm.searchTerm !== null) {
+            vm.getMovieByGenre(vm.searchTerm);
         }
         // Search by Specfic filters
         //2018 Top Films
