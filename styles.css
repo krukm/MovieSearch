@@ -2,3 +2,25 @@ img {
     height: 300px;
     width: 200px;
 }
+
+.movies {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+details {
+    width: 200px;
+}
+details[open]  {
+    
+}
+
+details[open] #overview {
+
+    
+}
+
+
+
+
+
