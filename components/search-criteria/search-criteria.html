@@ -2,8 +2,8 @@
   <form>
     <input type="search" ng-model="$ctrl.searchTerm" placeholder="movie name">
     <button type="submit" ng-click="$ctrl.getSearchResults($ctrl.searchTerm, selected);">Search</button>
-    <select ng-model="selected" placeholder="Genres">
-        <option disabled selected>Genres</option>
+    <select ng-model="selected" ng-change="$ctrl.theSelect(selected)">
+        <option selected disabled value="">Genres</option>
         <option value="18">Action</option>
         <option value="12">Adventure</option>
         <option value="16">Animation</option>

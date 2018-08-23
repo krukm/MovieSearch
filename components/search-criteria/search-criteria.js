@@ -9,20 +9,27 @@ const searchCriteria = {
         vm.getSearchResults = (searchTerm, selected) => {
             MovieService.searchMovies(searchTerm, selected).then((response) => {
                 vm.result = response;
-                SearchService.setSearchTerm(searchTerm);
-                console.log(vm.result);
+                //SearchService.setSearchTerm(searchTerm);
             });
+        }
+
         vm.addToWatchlist = (movie) => {
             WatchListService.addToWatchlist(movie);   
-        }  
+        } 
+
         vm.getMovieByGenre = function (searchTerm, selected) {
             MovieService.searchByGenre(searchTerm, selected).then(function(response){
                 vm.result = response;
                 SearchService.setSearchTerm(searchTerm);
-                console.log(`From getmoviebygenre ${vm.result}`);
             })
         }
+
+        vm.theSelect = function(selected) {
+            MovieService.searchByGenre(selected).then(function(response){
+                vm.result = response;
+            })
         }
+        
     }]
 } 
 
