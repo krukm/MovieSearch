@@ -3,7 +3,6 @@ img {
     width: 200px;
 }
 
-<<<<<<< HEAD
 .movies {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
@@ -25,11 +24,9 @@ details[open] #overview {
 
 
 
-=======
 #browseList {
    display: none;
 }
 #showlist:hover #browseList {
     display: block;
 }
->>>>>>> ab9616ab4967cc4d55d197f68cdf8bc9154df771
