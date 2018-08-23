@@ -6,34 +6,18 @@ const searchCriteria = {
         const vm = this;
         vm.result = null;
         vm.genreList = null;
-        vm.selectedGenre = null;
         vm.searchTerm = SearchService.getSearchTerm();
-    
-        vm.getSearchResults = (searchTerm) => {
-            MovieService.searchMovies(searchTerm).then((response) => {
-                vm.result = response;
-                SearchService.setSearchTerm(searchTerm);
-            });
-            vm.addToWatchlist = (movie) => {
-                WatchListService.addToWatchlist(movie);
-               
-            }  
-            });    
-        }
 
         vm.addToWatchlist = (movie) => {
             WatchListService.addToWatchlist(movie);
         } 
 
         vm.getMovieByGenre = (searchTerm, genre) => {
-           MovieService.searchByGenre(searchTerm, genre).then((response) => {
+            MovieService.resetGenreResults();
+            MovieService.searchByGenre(searchTerm, genre).then((response) => {
             SearchService.setSearchTerm(searchTerm);
             vm.result = response;
            });
-        }
-
-        if (vm.searchTerm !== null) {
-            vm.getMovieByGenre(vm.searchTerm);
         }
 
         vm.getGenreList = () => {
@@ -53,6 +37,10 @@ const searchCriteria = {
         }
         
         vm.getGenreList();
+
+        if (vm.searchTerm !== null) {
+            vm.getMovieByGenre(vm.searchTerm);
+        }
     }]
 } 
 
