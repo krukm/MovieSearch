@@ -2,14 +2,41 @@
 function MovieService($http) {
     const vm = this;
     vm.results = null;
-    vm.searchMovies = function (searchInput) {
-        return $http({
-            url: `https://api.themoviedb.org/3/search/movie?api_key=aef5248d110c426d0fbb272768a4ff38&query=${searchInput}`,
-            method: "GET"
-        }).then((response) => {
-            return response.data;
-        });
+    vm.genreResults = [];
+
+    vm.searchByGenre = function (searchInput, genre) {
+
+        if (genre === null) {
+            return $http({
+                url: `https://api.themoviedb.org/3/search/movie?api_key=aef5248d110c426d0fbb272768a4ff38&query=${searchInput}`,
+                method: "GET"
+            }).then((response) => {
+                for (let i = 0; i < response.data.results.length; i++) {
+                    vm.genreResults.push(response.data.results[i]);
+                }
+                console.log('No Genre: ');
+                console.log(vm.genreResults);
+                return vm.genreResults;
+            });
+        } else {
+            return $http ({
+                url: `https://api.themoviedb.org/3/search/movie?api_key=aef5248d110c426d0fbb272768a4ff38&query=${searchInput}`,
+                method: "GET"
+            }).then((response) => {
+                for (let i = 0; i < response.data.results.length; i++) {
+                    for(let j = 0; j < response.data.results[i].genre_ids.length; j++){
+                        if (response.data.results[i].genre_ids[j].toString() === genre) {
+                            vm.genreResults.push(response.data.results[i]);
+                        }
+                    }
+                }
+                console.log('Genre: ');
+                console.log(vm.genreResults);
+                return vm.genreResults;
+            });
+        }
     }
+
     vm.popularMovies = function () {
         return $http({
             url: `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=aef5248d110c426d0fbb272768a4ff38`,

@@ -1,6 +1,6 @@
 "use strict";
 const movieList = {
-    templateUrl:"components/movie-list/movie-list.html",
+    templateUrl: "components/movie-list/movie-list.html",
         
         controller: ["MovieService", "WatchListService", function(MovieService, WatchListService) {
             const vm = this;
