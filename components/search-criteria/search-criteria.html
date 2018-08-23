@@ -32,7 +32,6 @@
     <button ng-click="$ctrl.getGenreResults($ctrl.selectedGenre);">SEARCH</button>
   </form> -->
   <section ng-repeat="result in $ctrl.result">
-  <!-- <section ng-repeat="result in $ctrl.result"> --->
     <button ng-click= "$ctrl.addToWatchlist(result);" type="button">Add to Watchlist</button>
     <p> {{ result.title }} </p>
     <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}">

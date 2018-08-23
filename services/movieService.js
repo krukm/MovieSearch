@@ -64,7 +64,7 @@ function MovieService($http) {
             return response.data;
         });
     }
-    
+
     vm.genreList = function () {
         return $http({
             url: `https://api.themoviedb.org/3/genre/movie/list?api_key=aef5248d110c426d0fbb272768a4ff38&language=en-US`,
@@ -73,14 +73,6 @@ function MovieService($http) {
             return response.data;
         });
     }
-    // vm.moviesByGenre = function (genreInput) {
-    //     return $http({
-    //         url: `https://api.themoviedb.org/3/discover/movie?api_key=aef5248d110c426d0fbb272768a4ff38&language=en-US&with_genres=${genreInput.id}`,
-    //         method: "GET"
-    //     }).then((response) => {
-    //         return response.data;
-    //     });
-    // }
 }
 
 angular

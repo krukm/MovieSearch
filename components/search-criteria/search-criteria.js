@@ -13,6 +13,9 @@ const searchCriteria = {
         } 
 
         vm.getMovieByGenre = (searchTerm, genre) => {
+            if (searchTerm === '') {
+                searchTerm = null;
+            };
             MovieService.resetGenreResults();
             MovieService.searchByGenre(searchTerm, genre).then((response) => {
             SearchService.setSearchTerm(searchTerm);
@@ -25,18 +28,6 @@ const searchCriteria = {
                 vm.genreList = response.genres;
             });
         };
-                 
-        vm.getGenreResults = (genreInput) => {
-            MovieService.moviesByGenre(genreInput).then((response) => {
-                console.log(genreInput);
-                vm.result = response;
-                console.log(response)
-                console.log(vm.result)
-                SearchService.setSearchTerm(genreInput);
-            });
-        }
-        
-        vm.getGenreList();
 
         if (vm.searchTerm !== null) {
             vm.getMovieByGenre(vm.searchTerm);
