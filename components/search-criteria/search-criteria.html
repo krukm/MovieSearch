@@ -25,6 +25,27 @@
     </select>
     <button type="submit" ng-click="$ctrl.getMovieByGenre($ctrl.searchTerm, selected);">Search</button>
   </form>
+  <form>
+    <button type="submit" ng-click="$ctrl.getTopYearList();">2018 top films</button>
+    <button type="submit" ng-click="$ctrl.getBigBudgetList();">Big Budget</button>
+    <button type="submit" ng-click="$ctrl.getKidFilmList();">Kid Favorites</button>
+    <button type="submit" ng-click="$ctrl.getNinetiesList();">Nineties Favorites</button>
+    <button type="submit" ng-click="$ctrl.getEightiesList();">Eighties Favorites</button>
+    <button type="submit" ng-click="$ctrl.getFrenchList();">French Films</button>
+    <button type="submit" ng-click="$ctrl.getJapaneseList();">Japanese Anime</button>
+    <button type="submit" ng-click="$ctrl.getRomanticComedyList();">Romantic Comdies</button>
+  </form>
+  <ul>
+    <li ng-click="$ctrl.getTopYearList();">2018 top films</li>
+    <li ng-click="$ctrl.getBigBudgetList();">Big Budget</li>
+    <li ng-click="$ctrl.getKidFilmList();">Kid Favorites</li>
+    <li ng-click="$ctrl.getNinetiesList();">Nineties Favorites</li>
+    <li ng-click="$ctrl.getEightiesList();">Eighties Favorites</li>
+    <li ng-click="$ctrl.getFrenchList();">French Films</li>
+    <li ng-click="$ctrl.getJapaneseList();">Japanese Anime</li>
+    <li ng-click="$ctrl.getRomanticComedyList();">Romantic Comdies</li>
+  </ul>
+  <section ng-repeat="result in $ctrl.result.results">
   <!-- <form>
     <select  ng-model="$ctrl.selectedGenre" ng-options="genre as genre.name for genre in $ctrl.genreList track by genre.id" >
         <option value="" selected disabled hidden>Search by Genre</option>
