@@ -5,7 +5,7 @@
     <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
     <a href="https://www.themoviedb.org/movie/{{movie.id}}">Link</a>
     <div>https://www.themoviedb.org/movie/{{movie.id}}/videos</div>
-    <p>{{movie.overview}}</p>
+    <p> {{ movie.overview }} </p>
 </section>
 <section ng-repeat="movie in $ctrl.searchMovies | limitTo:10">
         <button ng-click= "$ctrl.addToWatchlist(movie);" type="button">Add to Watchlist</button>
