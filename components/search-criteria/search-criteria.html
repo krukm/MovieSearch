@@ -35,7 +35,7 @@
     </select>
     <button type="submit" ng-click="$ctrl.getMovieByGenre($ctrl.searchTerm, selected);">Search</button>
   </form>
-  <form>
+  <!-- <form>
     <button type="submit" ng-click="$ctrl.getTopYearList();">2018 top films</button>
     <button type="submit" ng-click="$ctrl.getBigBudgetList();">Big Budget</button>
     <button type="submit" ng-click="$ctrl.getKidFilmList();">Kid Favorites</button>
@@ -44,8 +44,9 @@
     <button type="submit" ng-click="$ctrl.getFrenchList();">French Films</button>
     <button type="submit" ng-click="$ctrl.getJapaneseList();">Japanese Anime</button>
     <button type="submit" ng-click="$ctrl.getRomanticComedyList();">Romantic Comdies</button>
-  </form>
-  <ul>
+  </form> -->
+  <h3>Discover:</h3>
+  <ul id="browsingList">
     <li ng-click="$ctrl.getTopYearList();">2018 top films</li>
     <li ng-click="$ctrl.getBigBudgetList();">Big Budget</li>
     <li ng-click="$ctrl.getKidFilmList();">Kid Favorites</li>

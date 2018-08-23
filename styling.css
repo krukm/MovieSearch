@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 header {
     width: 100%;
@@ -37,6 +38,15 @@ nav input::placeholder {
     font-style: italic;
 }
 
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+nav a {
+    text-decoration: none !important;
+    color: black;
+}
+
 #logo {
     height: 50px;
     width: 50px;
@@ -44,4 +54,23 @@ nav input::placeholder {
 
 h1 {
     font-family: 'Baloo Bhai', cursive;
+}
+
+section.movies {
+   width: 1200px;
+   margin: 0 auto;
+}
+
+#browsingList {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0;
+}
+#browsingList li {
+    
+    cursor: pointer;
+}
+h3 {
+    text-align: center;
 }
