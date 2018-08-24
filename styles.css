@@ -8,6 +8,10 @@ img {
     grid-template-columns: auto auto auto auto auto;
 }
 
+.empty {
+    display: none;
+}
+
 details {
     width: 200px;
 }
