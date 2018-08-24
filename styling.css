@@ -182,3 +182,51 @@ figure {
     left:85%;
     cursor: pointer;
 }
+
+
+/* style for details page */
+.movie-details{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background-color:#ecf4f4;
+    border-radius:20px;
+    margin:100px;
+    padding:50px;
+    position:relative;
+}
+
+.movie-details p {
+    margin-left:50px;
+    margin-right:50px;
+    
+}
+.movie-details h2 {
+    text-align:center;
+    margin-bottom:10px;
+    font-size:45px;
+    padding:0;
+    margin:0;
+}
+
+.movie-details .release, .rating, .synopsis {
+    font-size:20px;
+    color:#d8530e;
+}
+
+.list-title{
+    text-align:center;
+    padding:0;
+    margin-top:15px;;
+}
+.empty{
+    text-align:center;
+    color:white; 
+}
+
+.delete-button{
+    margin:5px;
+    background-color:#d8530e;
+    color:white;
+    border-radius:5px;
+}
