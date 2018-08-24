@@ -7,9 +7,14 @@ function WatchListService() {
     vm.movieList = [];
 
     vm.addToWatchlist = (movie) => {
-        vm.movieList.unshift(movie);
+        if (vm.movieList.includes(movie)) {
+            vm.movieList.splice(index, 1);
+        } else {
+            vm.movieList.unshift(movie);
+        }
         console.log(vm.movieList);
     }
+    
 
     vm.deleteMovie = (index) => {
         vm.movieList.splice(index,1);
