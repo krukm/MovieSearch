@@ -1,8 +1,8 @@
 "use strict";
 const movieList = {
-    templateUrl: "components/movie-list/movie-list.html",
+    templateUrl:"components/movie-list/movie-list.html",
         
-        controller: ["MovieService", "WatchListService", function(MovieService, WatchListService) {
+        controller: ["MovieService", "WatchListService", "MovieDetailsService", function(MovieService, WatchListService, MovieDetailsService) {
             const vm = this;
         
             vm.displayOnPageOpen = () => {
@@ -16,11 +16,23 @@ const movieList = {
             };
             vm.addToWatchlist = (movie) => {
                 WatchListService.addToWatchlist(movie);
+                
             }
-        vm.displayOnPageOpen();
+            vm.displayOnPageOpen();
+
+             vm.setCurrentMovie = (movie) => {
+                MovieDetailsService.setCurrentMovie(movie);
+                console.log(movie);
+        }
     }]
 }
+
+
 
 angular
     .module("app")
     .component("movieList", movieList);
+
+
+
+

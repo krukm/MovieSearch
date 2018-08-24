@@ -13,6 +13,11 @@ angular.module("app")
             <watch-list></watch-list>
             `
         })
+        .when("/movieDetails", {
+            template:`
+            <movie-details></movie-details>
+            `
+        })
         .otherwise({
             redirectTo: "/movieList"
         })
