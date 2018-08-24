@@ -34,7 +34,10 @@
 
 <section class="movies">
     <section ng-repeat="movie in $ctrl.movieList track by $index">
+        <section class="poster-button">
         <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+        <button class="delete-button" type="button" ng-click="$ctrl.deleteMovie($index)">X</button>
+        </section>
         <details>
             
             <summary>
@@ -44,7 +47,7 @@
             <!-- <p>{{ movie.title }}<p>
             <a href="https://www.themoviedb.org/movie/{{movie.id}}">Link</a>
             <div>https://www.themoviedb.org/movie/{{movie.id}}/videos</div> -->
-            <h3>{{ movie.title }}<button class="delete-button" type="button" ng-click="$ctrl.deleteMovie($index)">X</button></h3>
+            <h3>{{ movie.title }}</h3>
             <p id="overview">{{ movie.overview }} <a href="#!/movieDetails" ng-click="$ctrl.setCurrentMovie(movie);">more...</a> </p>
         </details> 
     </section>
