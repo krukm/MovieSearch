@@ -229,4 +229,14 @@ figure {
     background-color:#d8530e;
     color:white;
     border-radius:5px;
+    width:30px;
+    margin-left:85px;
+
+
+}
+.poster-button{
+    display:flex;
+    flex-direction:column;
+  
+
 }
