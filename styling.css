@@ -6,7 +6,6 @@ body {
 header {
     width: 100%;
     /* position: fixed; */
-    margin-bottom: 20px;
 
 }
 nav {
@@ -57,9 +56,13 @@ h1 {
     font-family: 'Baloo Bhai', cursive;
 }
 
+h2 {
+    padding: 30px;
+}
+
 section.movies {
    width: 1200px;
-   margin: 0 auto;
+   margin: 10px auto 50px auto;
 }
 
 #browsingList {
@@ -78,4 +81,42 @@ h3 {
 
 .movies img {
     border-radius: 7px;
+}
+
+#discoverable {
+    background: #1a1413;
+    color:white;
+    border-bottom: #70472a 2px solid;
+}
+
+#discoverable li:hover {
+    color: #c88c45;
+    text-decoration: underline;
+}
+
+footer {
+    height: 200px;
+    background: #1a1413;
+    color: #ecf4f4;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#discoverable h3 {
+    margin-top: 0;
+}
+
+#attribution {
+    height: 50px;
+}
+
+#watchlist {
+    position: absolute;
+    right: 0;
+}
+
+#movielist {
+    position: absolute;
+    right: 150px;
 }
