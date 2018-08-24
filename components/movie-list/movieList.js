@@ -18,11 +18,12 @@ const movieList = {
                 WatchListService.addToWatchlist(movie);
                 
             }
-            vm.displayOnPageOpen();
 
-             vm.setCurrentMovie = (movie) => {
+            vm.setCurrentMovie = (movie) => {
                 MovieDetailsService.setCurrentMovie(movie);
                 console.log(movie);
+
+            vm.displayOnPageOpen();
         }
     }]
 }
