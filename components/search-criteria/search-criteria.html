@@ -55,7 +55,7 @@
   
 
 
-  <section class="movies">
+  <section ng-class="($ctrl.result === null) ? 'empty' : 'movies'">
     <section ng-repeat="result in $ctrl.result">
 
         <figure>
