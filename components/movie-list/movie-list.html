@@ -11,26 +11,13 @@
             <!-- <p>{{ movie.title }}<p>
             <a href="https://www.themoviedb.org/movie/{{movie.id}}">Link</a>
             <div>https://www.themoviedb.org/movie/{{movie.id}}/videos</div> -->
-<<<<<<< HEAD
-            <p id="overview">{{ movie.overview }} </p>
-=======
             <h3>{{movie.title}}</h3>
             <p id="overview">{{ movie.overview }} <a href="#!/movieDetails" ng-click="$ctrl.setCurrentMovie(movie);">more...</a> </p>
->>>>>>> 3e0bc45acd3ae1e5c61b7d473a50d441193ce7c0
         </details> 
     </section>
 
 </section>
 
-<<<<<<< HEAD
-
-
-
-
-
-
-
-=======
 <section class="movies">
     <section ng-repeat="movie in $ctrl.searchMovies | limitTo:10">
         <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
@@ -49,7 +36,6 @@
         </details> 
     </section>
 </section>
->>>>>>> 3e0bc45acd3ae1e5c61b7d473a50d441193ce7c0
 
 <!-- <section ng-repeat="movie in $ctrl.topYearList | limitTo:10">
         <button ng-click= "$ctrl.addToWatchlist(movie);" type="button">Add to Watchlist</button>
