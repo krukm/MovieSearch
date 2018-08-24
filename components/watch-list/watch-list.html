@@ -22,7 +22,10 @@
 
 <section class="movies">
     <section ng-repeat="movie in $ctrl.movieList track by $index">
+        <section class="poster-button">
         <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+        <button class="delete-button" type="button" ng-click="$ctrl.deleteMovie($index)">X</button>
+        </section>
         <details>
             
             <summary>
