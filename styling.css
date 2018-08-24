@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Source Sans Pro', sans-serif;
-    background: #ecf4f4;
+    background: #70472a;
 }
 header {
     width: 100%;
@@ -11,6 +11,8 @@ header {
 nav {
     display: flex;
     background: #7c9999;
+    background: #1a1413;
+    color: #ecf4f4;
     align-items: center;
     padding-left: 15px;
     border-bottom: #ecf4f4 3px solid;
@@ -44,7 +46,7 @@ nav ul {
 }
 nav a {
     text-decoration: none !important;
-    color: black;
+    color: #ecf4f4;
 }
 
 #logo {
@@ -52,17 +54,24 @@ nav a {
     width: 50px;
 }
 
-h1 {
+h1, h2 {
     font-family: 'Baloo Bhai', cursive;
+    color: #d8530e;
 }
 
 h2 {
     padding: 30px;
+    margin-left: 50px;
 }
 
 section.movies {
    width: 1200px;
    margin: 10px auto 50px auto;
+   background: #ecf4f4;
+   grid-column-gap: 50px;
+   padding: 40px;
+   border-radius: 3px;
+   box-shadow: 0 2px 3px brown;
 }
 
 #browsingList {
@@ -116,7 +125,15 @@ footer {
     right: 0;
 }
 
+watch-list h1 {
+    padding: 30px;
+}
+
 #movielist {
     position: absolute;
     right: 150px;
+}
+
+summary {
+    text-align: center;
 }
