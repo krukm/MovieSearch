@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("app")
-    .config(["$routeProvider", function($routeProvider) {
+    .config(["$routeProvider", "$sceDelegateProvider", function($routeProvider, $sceDelegateProvider) {
         $routeProvider
         .when("/movieList", {
             template: `
@@ -20,6 +20,10 @@ angular.module("app")
         })
         .otherwise({
             redirectTo: "/movieList"
-        })
+        });
 
-    }])
+        $sceDelegateProvider.resourceUrlWhitelist([
+            'self',
+            'https://www.youtube.com/**'
+          ]);
+    }]);

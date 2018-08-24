@@ -11,9 +11,9 @@ const searchCriteria = {
         vm.addToWatchlist = (movie) => {
             WatchListService.addToWatchlist(movie);
         } 
+        
         vm.setCurrentMovie = (movie) => {
             MovieDetailsService.setCurrentMovie(movie);
-            console.log(movie);
         }
 
         vm.getMovieByGenre = (searchTerm, genre) => {
