@@ -12,6 +12,9 @@ function MovieDetailsService() {
         vm.currentMovie = movie;
         console.log("setting movie");
     }
+    vm.addToWatchList = (movie) => {
+      WatchListService.addToWatchList(movie);
+    }
 }
 
 angular
