@@ -155,3 +155,30 @@ summary button {
     margin-bottom: 25px;
     border-radius: 7px;
 }
+/* Add to watchlist eye */
+figure {
+    margin: 0px;
+    position: relative;
+}
+.material-icons{
+    position: absolute;
+    top: 90%;
+    left:85%;
+    color: #7c9999;
+    cursor: pointer;
+}
+.unclicked {
+    position: absolute;
+    top: 90%;
+    left:85%;
+    color: #7c9999;
+    cursor: pointer;
+}
+
+.clicked {
+    color: #d8530e;
+    position: absolute;
+    top: 90%;
+    left:85%;
+    cursor: pointer;
+}
