@@ -1,3 +1,21 @@
+<header>
+        <nav>
+            <a href="#!/movieList">
+                <img id="logo" src="gopher.png">
+            </a>
+            <h1>Movie Gopher</h1>
+            <ul>
+                <li>
+                    <a href="#!/movieList" id="movielist">Movie List</a>
+                </li> 
+                <li> 
+                    <a href="#!/watchList" id="watchlist">Watch List</a>
+                </li>
+            </ul>
+            
+        </nav>
+        
+    </header>
 <h1>Your Watch List</h1>
 <p ng-if="$ctrl.movieList.length <= 0">You don't have any movies saved to your Watch List yet!</p>
 
@@ -20,7 +38,7 @@
         <details>
             <button type="button" ng-click="$ctrl.deleteMovie($index)">X</button>
             <summary>
-                
+                {{movie.title}}
                 <!-- <button ng-click= "$ctrl.addToWatchlist(movie);" type="button">Add to Watchlist</button> -->
             </summary>
             <!-- <p>{{ movie.title }}<p>

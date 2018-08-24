@@ -1,103 +1,79 @@
-<section>
-  <form>
-    <input type="search" ng-model="$ctrl.searchTerm" placeholder="movie name">
-    <select ng-model="selected">
-        <option disabled selected value="">Genres</option>
-        <option value="18">Action</option>
-        <option value="12">Adventure</option>
-        <option value="16">Animation</option>
-        <option value="35">Comedy</option>
-        <option value="80">Crime</option>
-        <option value="99">Documentary</option>
-        <option value="18">Drama</option>
-        <option value="10751">Family</option>
-        <option value="14">Fantasy</option>
-        <option value="36">History</option>
-        <option value="27">Horror</option>
-        <option value="10402">Music</option>
-        <option value="9648">Mystery</option>
-        <option value="10749">Romance</option>
-        <option value="878">Science Fiction</option>
-        <option value="10770">TV Movie</option>
-        <option value="53">Thriller</option>
-        <option value="10752">War</option>
-        <option value="37">Western</option>
-    </select>
-    <button type="submit" ng-click="$ctrl.getMovieByGenre($ctrl.searchTerm, selected);">Search</button>
-  </form>
-  <form>
-    <button type="submit" ng-click="$ctrl.getTopYearList();">2018 top films</button>
-    <button type="submit" ng-click="$ctrl.getBigBudgetList();">Big Budget</button>
-    <button type="submit" ng-click="$ctrl.getKidFilmList();">Kid Favorites</button>
-    <button type="submit" ng-click="$ctrl.getNinetiesList();">Nineties Favorites</button>
-    <button type="submit" ng-click="$ctrl.getEightiesList();">Eighties Favorites</button>
-    <button type="submit" ng-click="$ctrl.getFrenchList();">French Films</button>
-    <button type="submit" ng-click="$ctrl.getJapaneseList();">Japanese Anime</button>
-    <button type="submit" ng-click="$ctrl.getRomanticComedyList();">Romantic Comdies</button>
-  </form>
-  <ul>
-    <li ng-click="$ctrl.getTopYearList();">2018 top films</li>
-    <li ng-click="$ctrl.getBigBudgetList();">Big Budget</li>
-    <li ng-click="$ctrl.getKidFilmList();">Kid Favorites</li>
-    <li ng-click="$ctrl.getNinetiesList();">Nineties Favorites</li>
-    <li ng-click="$ctrl.getEightiesList();">Eighties Favorites</li>
-    <li ng-click="$ctrl.getFrenchList();">French Films</li>
-    <li ng-click="$ctrl.getJapaneseList();">Japanese Anime</li>
-    <li ng-click="$ctrl.getRomanticComedyList();">Romantic Comdies</li>
-  </ul>
-  <!-- <section ng-repeat="result in $ctrl.result.results"> -->
-  <!-- <form>
-    <select  ng-model="$ctrl.selectedGenre" ng-options="genre as genre.name for genre in $ctrl.genreList track by genre.id" >
-        <option value="" selected disabled hidden>Search by Genre</option>
-    </select>
-    <button ng-click="$ctrl.getGenreResults($ctrl.selectedGenre);">SEARCH</button>
-  </form> -->
+<header>
+    <nav>
+        <img id="logo" src="gopher.png">
+        <h1>Movie Gopher</h1>
+        <form ng-submit="$ctrl.getMovieByGenre($ctrl.searchTerm, selected);">
+          <input placeholder="search by movie title" type="search" ng-model="$ctrl.searchTerm" placeholder="movie name">
+        </form>
+        <h4>filter by:</h4>
+        <form>
+            <select ng-model="selected">
+                <option disabled selected value="">Genre</option>
+                <option value="18">Action</option>
+                <option value="12">Adventure</option>
+                <option value="16">Animation</option>
+                <option value="35">Comedy</option>
+                <option value="80">Crime</option>
+                <option value="99">Documentary</option>
+                <option value="18">Drama</option>
+                <option value="10751">Family</option>
+                <option value="14">Fantasy</option>
+                <option value="36">History</option>
+                <option value="27">Horror</option>
+                <option value="10402">Music</option>
+                <option value="9648">Mystery</option>
+                <option value="10749">Romance</option>
+                <option value="878">Science Fiction</option>
+                <option value="10770">TV Movie</option>
+                <option value="53">Thriller</option>
+                <option value="10752">War</option>
+                <option value="37">Western</option>
+            </select>
+          </form>
 
+          <a href="#!/movieList" id="movielist">Movie List</a>
+          <a href="#!/watchList" id="watchlist">Watch List</a>
+        
+        </nav>
+    
+</header>
+  
 
+  <section id="discoverable">
+    <h3>Discover:</h3>
+    <ul id="browsingList">
+      <li ng-click="$ctrl.getTopYearList();">2018 top films</li>
+      <li ng-click="$ctrl.getBigBudgetList();">Big Budget</li>
+      <li ng-click="$ctrl.getKidFilmList();">Kid Favorites</li>
+      <li ng-click="$ctrl.getNinetiesList();">Nineties Favorites</li>
+      <li ng-click="$ctrl.getEightiesList();">Eighties Favorites</li>
+      <li ng-click="$ctrl.getFrenchList();">French Films</li>
+      <li ng-click="$ctrl.getJapaneseList();">Japanese Anime</li>
+      <li ng-click="$ctrl.getRomanticComedyList();">Romantic Comdies</li>
+    </ul>
+  </section>
+  
 
-  <!-- <section ng-repeat="result in $ctrl.result">
-    <button ng-click= "$ctrl.addToWatchlist(result);" type="button">Add to Watchlist</button>
-    <p> {{ result.title }} </p>
-    <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}">
-    <a href="https://www.themoviedb.org/movie/{{result.id}}">Link</a>
-    <div>https://www.themoviedb.org/movie/{{result.id}}/videos</div>
-    <p> {{ result.overview }} </p>
-  </section> -->
 
   <section class="movies">
     <section ng-repeat="result in $ctrl.result">
-        <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}">
+
+        <figure>
+            <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}">
+            <i class="material-icons" ng-class="{ clicked: toggle }" ng-click="$ctrl.addToWatchlist(result); toggle = !toggle" >remove_red_eye</i>
+        </figure>
       <details>
         <summary>
-          <button ng-click= "$ctrl.addToWatchlist(result);" type="button">Add to Watchlist</button>
+          {{result.title}}
         </summary>
             <!-- <p>{{ movie.title }}<p>
             <a href="https://www.themoviedb.org/movie/{{movie.id}}">Link</a>
             <div>https://www.themoviedb.org/movie/{{movie.id}}/videos</div> -->
         <a href="https://www.themoviedb.org/movie/{{result.id}}">
-          <h3>{{ movie.title }}</h3>
         </a>
         <p id="overview">{{ result.overview }} <a href="#!/movieDetails" ng-click="$ctrl.setCurrentMovie(result);">more...</a> </p>
       </details> 
     </section>
   </section>
 
-  <section class="movies">
-    <section ng-repeat="result in $ctrl.result">
-      <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}">
-      <details>
-        <summary>   
-          <button ng-click= "$ctrl.addToWatchlist(movie);" type="button">Add to Watchlist</button>
-        </summary>
-          <!-- <p>{{ movie.title }}<p>
-          <a href="https://www.themoviedb.org/movie/{{movie.id}}">Link</a>
-          <div>https://www.themoviedb.org/movie/{{movie.id}}/videos</div> -->
-        <h3>{{ result.title }}</h3>
-        <p id="overview">{{ result.overview }} <a href="#!/movieDetails" ng-click="">more...</a> </p>
-      </details> 
-    </section>
-  </section>
-
-
-</section>
 

@@ -1,0 +1,184 @@
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    background: #70472a;
+}
+header {
+    width: 100%;
+    /* position: fixed; */
+
+}
+nav {
+    display: flex;
+    background: #7c9999;
+    background: #1a1413;
+    color: #ecf4f4;
+    align-items: center;
+    padding-left: 15px;
+    border-bottom: #ecf4f4 3px solid;
+    box-shadow: 0 7px 5px #888;
+    width: 100%; 
+}
+
+nav * {
+    margin-right: 15px;
+    border-radius: 35px;
+    border: none;
+}
+
+nav input {
+    padding: 14px;
+    outline: none;
+    width: 300px;
+}
+
+nav input::placeholder {
+    font-family: "Source Sans Pro";
+    word-spacing: 5px;
+    font-size: 14px;
+    padding-left: 10px;
+    font-style: italic;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+nav a {
+    text-decoration: none !important;
+    color: #ecf4f4;
+}
+
+#logo {
+    height: 50px;
+    width: 50px;
+}
+
+h1, h2 {
+    font-family: 'Baloo Bhai', cursive;
+    color: #d8530e;
+}
+
+h2 {
+    padding: 30px;
+    margin-left: 50px;
+}
+
+section.movies {
+   width: 1200px;
+   margin: 10px auto 50px auto;
+   background: #ecf4f4;
+   grid-column-gap: 50px;
+   padding: 40px;
+   border-radius: 3px;
+   box-shadow: 0 2px 3px brown;
+}
+
+#browsingList {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0;
+}
+#browsingList li {
+    
+    cursor: pointer;
+}
+h3 {
+    text-align: center;
+}
+
+.movies img {
+    /* border-radius: 7px;
+    border: 3px solid #1a1413; */
+}
+
+#discoverable {
+    background: #1a1413;
+    color:white;
+    border-bottom: #70472a 2px solid;
+}
+
+#discoverable li:hover {
+    color: #c88c45;
+    text-decoration: underline;
+}
+
+footer {
+    height: 200px;
+    background: #1a1413;
+    color: #ecf4f4;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#discoverable h3 {
+    margin-top: 0;
+}
+
+#attribution {
+    height: 50px;
+}
+
+#watchlist {
+    position: absolute;
+    right: 0;
+}
+
+watch-list h1 {
+    padding: 30px;
+}
+
+#movielist {
+    position: absolute;
+    right: 150px;
+}
+
+summary {
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+}
+
+details p {
+    padding: 10px;
+}
+
+summary button {
+    margin: 0 auto;
+    display: block;
+    margin-top: 15px;
+}
+
+.movies section {
+    margin-bottom: 25px;
+    border-radius: 7px;
+}
+/* Add to watchlist eye */
+figure {
+    margin: 0px;
+    position: relative;
+}
+.material-icons{
+    position: absolute;
+    top: 90%;
+    left:85%;
+    color: #7c9999;
+    cursor: pointer;
+}
+.unclicked {
+    position: absolute;
+    top: 90%;
+    left:85%;
+    color: #7c9999;
+    cursor: pointer;
+}
+
+.clicked {
+    color: #d8530e;
+    position: absolute;
+    top: 90%;
+    left:85%;
+    cursor: pointer;
+}
