@@ -34,39 +34,46 @@
           <a href="#!/movieList" id="movielist">Movie List</a>
           <a href="#!/watchList" id="watchlist">Watch List</a>
         
-      </nav>
+        </nav>
     
 </header>
   
-<section id="discoverable">
-<h3>Discover:</h3>
-<ul id="browsingList">
-  <li ng-click="$ctrl.getTopYearList();">2018 top films</li>
-  <li ng-click="$ctrl.getBigBudgetList();">Big Budget</li>
-  <li ng-click="$ctrl.getKidFilmList();">Kid Favorites</li>
-  <li ng-click="$ctrl.getNinetiesList();">Nineties Favorites</li>
-  <li ng-click="$ctrl.getEightiesList();">Eighties Favorites</li>
-  <li ng-click="$ctrl.getFrenchList();">French Films</li>
-  <li ng-click="$ctrl.getJapaneseList();">Japanese Anime</li>
-  <li ng-click="$ctrl.getRomanticComedyList();">Romantic Comdies</li>
-</ul>
-</section>
-  
-<section ng-hide="$ctrl.result === null" class="movies">
-  <section ng-repeat="result in $ctrl.result">
-    <figure>
-        <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}">
-        <i class="material-icons" ng-class="{ clicked: toggle }" ng-click="$ctrl.addToWatchlist(result); toggle = !toggle" >remove_red_eye</i>
-    </figure>
-    <details>
-      <summary>
-        {{result.title}}
-      </summary>
-      <a href="https://www.themoviedb.org/movie/{{result.id}}">
-      </a>
-      <p id="overview">{{ result.overview }} <a href="#!/movieDetails" ng-click="$ctrl.setCurrentMovie(result);">more...</a> </p>
-    </details> 
+
+  <section id="discoverable">
+    <h3>Discover:</h3>
+    <ul id="browsingList">
+      <li ng-click="$ctrl.getTopYearList();">2018 top films</li>
+      <li ng-click="$ctrl.getBigBudgetList();">Big Budget</li>
+      <li ng-click="$ctrl.getKidFilmList();">Kid Favorites</li>
+      <li ng-click="$ctrl.getNinetiesList();">Nineties Favorites</li>
+      <li ng-click="$ctrl.getEightiesList();">Eighties Favorites</li>
+      <li ng-click="$ctrl.getFrenchList();">French Films</li>
+      <li ng-click="$ctrl.getJapaneseList();">Japanese Anime</li>
+      <li ng-click="$ctrl.getRomanticComedyList();">Romantic Comdies</li>
+    </ul>
   </section>
-</section>
+  
+
+
+  <section class="movies">
+    <section ng-repeat="result in $ctrl.result">
+
+        <figure>
+            <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}">
+            <i class="material-icons" ng-class="{ clicked: toggle }" ng-click="$ctrl.addToWatchlist(result); toggle = !toggle" >remove_red_eye</i>
+        </figure>
+      <details>
+        <summary>
+          {{result.title}}
+        </summary>
+            <!-- <p>{{ movie.title }}<p>
+            <a href="https://www.themoviedb.org/movie/{{movie.id}}">Link</a>
+            <div>https://www.themoviedb.org/movie/{{movie.id}}/videos</div> -->
+        <a href="https://www.themoviedb.org/movie/{{result.id}}">
+        </a>
+        <p id="overview">{{ result.overview }} <a href="#!/movieDetails" ng-click="$ctrl.setCurrentMovie(result);">more...</a> </p>
+      </details> 
+    </section>
+  </section>
 
 
