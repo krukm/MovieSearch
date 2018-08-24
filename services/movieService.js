@@ -63,6 +63,15 @@ function MovieService($http) {
         });
     }
 
+    vm.getMore = function(count){
+        return $http({
+            url: `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=aef5248d110c426d0fbb272768a4ff38&page=${count}`,
+            method: "GET"
+        }).then(function(response){
+            return response.data;
+        })
+    };
+
     vm.genreList = function () {
         return $http({
             url: `https://api.themoviedb.org/3/genre/movie/list?api_key=aef5248d110c426d0fbb272768a4ff38&language=en-US`,

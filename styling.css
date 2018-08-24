@@ -182,3 +182,17 @@ figure {
     left:85%;
     cursor: pointer;
 }
+
+#moar {
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+#moar:hover {
+    background: #d8530e;
+    background: #7c9999;
+    color: white;
+}

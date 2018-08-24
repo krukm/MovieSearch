@@ -7,7 +7,7 @@ const movieList = {
         
             vm.displayOnPageOpen = () => {
                 vm.displayMovies();
-            }
+            };
 
             vm.displayMovies = () => {
                 MovieService.popularMovies().then((response) => {
@@ -15,15 +15,21 @@ const movieList = {
                 });
             };
             vm.addToWatchlist = (movie) => {
-                WatchListService.addToWatchlist(movie);
-                
-            }
-            vm.displayOnPageOpen();
+                WatchListService.addToWatchlist(movie);   
+            };
+            //vm.displayOnPageOpen();
 
-             vm.setCurrentMovie = (movie) => {
+            vm.setCurrentMovie = (movie) => {
                 MovieDetailsService.setCurrentMovie(movie);
                 console.log(movie);
-        }
+            };
+            vm.loadMore = function(count) {
+                document.getElementById("popularMovies").scrollIntoView();
+                MovieService.getMore(count).then(function(response){
+                    vm.popMovies = response.results;
+                })
+            };
+            vm.loadMore();
     }]
 }
 
